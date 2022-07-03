@@ -159,7 +159,7 @@ class FastDEC:
 
     """
 
-    def __init__(self, k, n_clusters = 0,  ann="kdtree", metric="euclidean", denstiy_estimator='gaussion',
+    def __init__(self, k, n_clusters = 0,  ann="kdtree", metric="euclidean", denstiy_estimator='gaussian',
                  ):
         self.k = k
 
@@ -183,7 +183,7 @@ class FastDEC:
     def density_estimation(self,_knn_dists):
         # density = np.sum(np.exp(-_knn_dists / 2 / mean_vale), axis=1)
         # density = - _knn_dists[:, k - 1]
-        if self.density_estimator == 'gaussion':
+        if self.density_estimator == 'gaussian':
             mean_vale = np.mean(_knn_dists)
             density = np.sum(np.exp(-_knn_dists / 2 / mean_vale), axis=1)
         if self.density_estimator == 'kth':
